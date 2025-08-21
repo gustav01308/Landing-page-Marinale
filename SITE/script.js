@@ -39,6 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isDragging) return;
       const x = e.pageX;
       offset = dragOffset + (x - startX);
+ //limita de nao ir para esquerda
+      const maxOffset = 0;
+      offset = Math.min(offset, maxOffset);
+
       track.style.transform = `translateX(${offset}px)`;
     });
 
@@ -91,4 +95,74 @@ document.getElementById("btnAnterior").addEventListener("click", () => {
   anterior.classList.add("ativo", "animar-colunas-direita");
   setTimeout(() => anterior.classList.remove("animar-colunas-direita"), 600);
 });
+});
+
+// Função para carrossel das avaliações
+
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector('.avaliacoes-container');
+  let isDragging = false;
+  let offset = 0;
+  const velocidade = 0.5;
+  let startX = 0;
+  let dragOffset = 0;
+
+  function loopCarrossel() {
+    if (!isDragging) {
+      offset -= velocidade;
+
+      const primeiraAvaliacao = track.children[0];
+      if (primeiraAvaliacao) {
+        const larguraItem = primeiraAvaliacao.offsetWidth + 50;
+        if (Math.abs(offset) >= larguraItem) {
+          track.appendChild(primeiraAvaliacao);
+          offset += larguraItem;
+        }
+      }
+
+      track.style.transform = `translateX(${offset}px)`;
+    }
+
+    requestAnimationFrame(loopCarrossel);
+  }
+
+  if (track) loopCarrossel();
+
+  // arrastar com o mouse
+  if (track) {
+    track.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      isDragging = true;
+      startX = e.pageX;
+      dragOffset = offset;
+      track.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const x = e.pageX;
+      offset = dragOffset + (x - startX);
+      //limita de nao ir para esquerda
+      const maxOffset = 0;
+      offset = Math.min(offset, maxOffset);
+
+      track.style.transform = `translateX(${offset}px)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        track.style.cursor = 'grab';
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        track.style.cursor = 'grab';
+      }
+    });
+
+    track.style.cursor = 'grab';
+  }
 });
