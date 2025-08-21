@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Reveal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <section style="background: #eee;">
+    <h1>Scroll para ver o efeito</h1>
+  </section>
+
+  <section style="background: #ccc;">
+    <div class="reveal">
+      <h2>Sobre Nós</h2>
+      <p>Este conteúdo aparece com transição ao rolar.</p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Site carregado com sucesso!");
+      revealOnScroll();
+    });
+
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+
+      for (const el of reveals) {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+  </script>
+
+</body>
+</html>
