@@ -883,29 +883,21 @@ button:focus-visible {
   background-color: #222a36;
   color: #fff;
   padding: 60px 40px;
-  height: 350px;
-}
-
-.contato {
   border-top: 3px solid #093bb0;
-  background-color: #222a36;
-  color: #fff;
-  padding: 60px 40px;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
 }
 
 .contato-conteudo {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os blocos */
   align-items: flex-start;
+  gap: 150px; /* Espaço uniforme entre os blocos */
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-}
-
-.contato-bloco,
-.navegacao,
-.horarios {
-  flex: 1;
-  margin: 0 20px;
 }
 
 .contato-logo {
