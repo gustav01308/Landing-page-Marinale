@@ -206,6 +206,44 @@ header {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(6px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  @media (max-width: 600px) {
+    header {
+      padding: 8px 12px;
+      min-height: 56px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    }
+    .logo {
+      height: 38px;
+      max-width: 120px;
+    }
+    .header-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+      padding: 0;
+    }
+    .header-right {
+      gap: 4px;
+    }
+    .telefone {
+      font-size: 14px;
+      padding: 0 4px;
+    }
+    .menu ul {
+      display: none;
+    }
+    .menu-hamburguer {
+      display: block !important;
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #fff;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+  }
 }
 
 
@@ -809,6 +847,20 @@ button:focus-visible {
   align-items: center;
   transition: transform 0.2s;
 }
+@media (max-width: 600px) {
+  .seta {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 2px !important;
+    width: auto !important;
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 .seta.esquerda {
   margin-right: 16px;
@@ -986,8 +1038,9 @@ button:focus-visible {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-top: 60px;
-  display: flex;
-  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
 }
 
