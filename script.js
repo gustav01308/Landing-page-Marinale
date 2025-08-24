@@ -1,3 +1,27 @@
+// Swipe horizontal nos cards de serviços para mobile
+document.addEventListener('DOMContentLoaded', function() {
+  const wrapper = document.querySelector('.servicos-blocos-wrapper');
+  if (!wrapper) return;
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  wrapper.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - wrapper.offsetLeft;
+    scrollLeft = wrapper.scrollLeft;
+  });
+  wrapper.addEventListener('touchend', () => {
+    isDown = false;
+  });
+  wrapper.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - wrapper.offsetLeft;
+    const walk = (startX - x);
+    wrapper.scrollLeft = scrollLeft + walk;
+  });
+});
 document.addEventListener("DOMContentLoaded", () => {
   // Carrossel infinito de logos
   const track = document.querySelector('.marcas-track');
