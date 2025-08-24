@@ -1045,7 +1045,6 @@ button:focus-visible {
   .servicos-container {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    grid-template-rows: repeat(6, auto) !important;
     gap: 12px !important;
     max-width: 100vw !important;
     margin: 0 auto !important;
@@ -1057,9 +1056,8 @@ button:focus-visible {
     height: auto !important;
   }
   .servico-card {
-    min-width: 0 !important;
-    max-width: 90vw !important;
     width: 90vw !important;
+    max-width: 90vw !important;
     margin: 0 auto 12px auto !important;
     box-sizing: border-box;
     word-break: break-word;
