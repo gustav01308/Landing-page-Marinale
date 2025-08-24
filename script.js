@@ -4,27 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
   const cards = container ? Array.from(container.querySelectorAll('.servico-card')) : [];
   const setaEsquerda = document.querySelector('.seta.esquerda');
   const setaDireita = document.querySelector('.seta.direita');
-  let current = 0;
+  let currentPage = 0;
+  const cardsPerPage = 6;
+  const totalPages = Math.ceil(cards.length / cardsPerPage);
 
-  function showCard(idx) {
+  function showPage(pageIdx) {
     cards.forEach((card, i) => {
-      card.classList.toggle('ativo', i === idx);
+      const start = pageIdx * cardsPerPage;
+      const end = start + cardsPerPage;
+      card.style.display = (i >= start && i < end) ? 'block' : 'none';
     });
   }
-  if (cards.length) showCard(current);
+  if (cards.length) showPage(currentPage);
 
-  function nextCard() {
-    current = (current + 1) % cards.length;
-    showCard(current);
+  function nextPage() {
+    currentPage = (currentPage + 1) % totalPages;
+    showPage(currentPage);
   }
-  function prevCard() {
-    current = (current - 1 + cards.length) % cards.length;
-    showCard(current);
+  function prevPage() {
+    currentPage = (currentPage - 1 + totalPages) % totalPages;
+    showPage(currentPage);
   }
-  if (setaDireita) setaDireita.addEventListener('click', nextCard);
-  if (setaEsquerda) setaEsquerda.addEventListener('click', prevCard);
+  if (setaDireita) setaDireita.addEventListener('click', nextPage);
+  if (setaEsquerda) setaEsquerda.addEventListener('click', prevPage);
 
-  // Swipe
+  // Swipe para trocar página
   let startX = null;
   if (container) {
     container.addEventListener('touchstart', function(e) {
@@ -33,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     container.addEventListener('touchend', function(e) {
       if (startX === null) return;
       let endX = e.changedTouches[0].clientX;
-      if (endX - startX > 50) prevCard();
-      else if (startX - endX > 50) nextCard();
+      if (endX - startX > 50) prevPage();
+      else if (startX - endX > 50) nextPage();
       startX = null;
     });
   }
