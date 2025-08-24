@@ -1,3 +1,44 @@
+// Carrossel paginado para serviços (mobile)
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.servicos-container');
+  const cards = container ? Array.from(container.querySelectorAll('.servico-card')) : [];
+  const setaEsquerda = document.querySelector('.seta.esquerda');
+  const setaDireita = document.querySelector('.seta.direita');
+  let current = 0;
+
+  function showCard(idx) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('ativo', i === idx);
+    });
+  }
+  if (cards.length) showCard(current);
+
+  function nextCard() {
+    current = (current + 1) % cards.length;
+    showCard(current);
+  }
+  function prevCard() {
+    current = (current - 1 + cards.length) % cards.length;
+    showCard(current);
+  }
+  if (setaDireita) setaDireita.addEventListener('click', nextCard);
+  if (setaEsquerda) setaEsquerda.addEventListener('click', prevCard);
+
+  // Swipe
+  let startX = null;
+  if (container) {
+    container.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+    });
+    container.addEventListener('touchend', function(e) {
+      if (startX === null) return;
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) prevCard();
+      else if (startX - endX > 50) nextCard();
+      startX = null;
+    });
+  }
+});
 // Swipe horizontal nos cards de serviços para mobile
 document.addEventListener('DOMContentLoaded', function() {
   const wrapper = document.querySelector('.servicos-blocos-wrapper');
