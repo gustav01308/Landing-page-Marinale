@@ -396,7 +396,7 @@ section h2 {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  max-width: 1200px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -1076,7 +1076,7 @@ button:focus-visible {
   justify-content: center; /* Centraliza os blocos */
   align-items: flex-start;
   gap: 150px; /* Espaço uniforme entre os blocos */
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
 }
