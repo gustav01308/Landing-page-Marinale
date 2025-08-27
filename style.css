@@ -668,22 +668,20 @@ button:focus-visible {
     max-width: 360px; /* garante espaço para as setas */
     padding: 0 4px;
   }
-  .servico-card {
+ .servico-card {
     width: 90vw;
-    max-width: 70vw;
-    aspect-ratio: 2.2 / 1;
-    min-height: 120px;
-    max-height: 180px;
+    max-width: 90vw;
+    min-height: 140px;
+    height: 140px;
     font-size: 0.95em;
-    min-width: 0;
-    height: auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     word-break: break-word;
-  }
+}
+
   .servico-card h3 {
     font-size: 1em;
   }
@@ -701,10 +699,16 @@ button:focus-visible {
   }
 
   .svg-seta {
-    height: 32px;
-    width: 32px;
-    transition: none !important;
+    height: 28px;
+    width: 28px;
   }
+  .seta.esquerda {
+    margin-right: 8px;
+  }
+  .seta.direita {
+    margin-left: 8px;
+  }
+
   .servicos-titulo{
    .servicos-titulo {
     flex-direction: row;
@@ -723,6 +727,7 @@ button:focus-visible {
   align-items: center;        /* centraliza vertical */
   justify-content: center;    /* centraliza horizontal */
 }
+
 .seta {
   background: none;
   border: none;
@@ -730,15 +735,7 @@ button:focus-visible {
   cursor: pointer;
   display: flex;
   align-items: center;
-}
-.seta {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: transform 0.2s;
+  transition: transform 0.8s;
 }
 
 .seta.esquerda {
@@ -749,9 +746,11 @@ button:focus-visible {
   margin-left: 16px;
 }
 
-.seta:hover .svg-seta {
-  transform: scale(1.15);
-  filter: brightness(1.2);
+@media (hover: hover) and (pointer: fine) {
+  .seta:hover .svg-seta {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+  }
 }
 .svg-seta {
   display: block;
@@ -831,8 +830,8 @@ button:focus-visible {
   gap: 20px;
   margin-top: 60px;
   white-space: nowrap;
-  width: 100%;
-  max-width: 100vw;
+  will-change: transform;
+  width: max-content;
 }
 
 .avaliacoes-clientes button {
