@@ -657,35 +657,33 @@ button:focus-visible {
 
 /* Melhorias para celular */
 @media (max-width: 480px) {
-  .servicos-blocos .servicos-container.ativo {
-    grid-template-columns: 1fr;
-    max-width: 320px; /* reduz a largura máxima para caber as setas */
+ .servicos-blocos .servicos-container.ativo {
+    max-width: 100vw;
+    width: 100vw;
     margin: 0 auto;
     gap: 12px;
     padding: 0 8px;
+    overflow-x: hidden;
   }
-  .servicos-blocos-wrapper {
-    max-width: 360px; /* garante espaço para as setas */
+.servicos-blocos-wrapper {
+    max-width: 100vw;
+    width: 100vw;
     padding: 0 4px;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
- .servico-card {
-    width: 90vw;
-    max-width: 90vw;
+  .servico-card {
+    width: 100%;
+    max-width: 100%;
     min-height: 140px;
     height: 140px;
     font-size: 0.95em;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    word-break: break-word;
-}
+  }
 
   .servico-card h3 {
     font-size: 1em;
   }
-}
 
   .linha-vertical {
     display: inline-block;
@@ -702,15 +700,14 @@ button:focus-visible {
     height: 28px;
     width: 28px;
   }
-  .seta.esquerda {
-    margin-right: 8px;
+ .seta.esquerda {
+    margin-right: 4px;
   }
   .seta.direita {
-    margin-left: 8px;
+    margin-left: 4px;
   }
 
-  .servicos-titulo{
-   .servicos-titulo {
+  .servicos-titulo {
     flex-direction: row;
     justify-content: center;
     gap: 8px;
