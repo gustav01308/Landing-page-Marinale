@@ -613,6 +613,30 @@ button:focus-visible {
   max-width: 1000px;
   margin: 0 auto;
 }
+
+/* Melhorias para celular */
+@media (max-width: 480px) {
+  .servicos-blocos .servicos-container.ativo {
+    grid-template-columns: 1fr;
+    max-width: 320px; /* reduz a largura máxima para caber as setas */
+    margin: 0 auto;
+    gap: 12px;
+    padding: 0 8px;
+  }
+  .servicos-blocos-wrapper {
+    max-width: 360px; /* garante espaço para as setas */
+    padding: 0 4px;
+  }
+  .seta {
+    height: 40px;
+    width: 40px;
+  }
+  .svg-seta {
+    height: 32px;
+    width: 32px;
+  }
+}
+
 .servicos-blocos-wrapper {
   flex: 1;                    /* ocupa o espaço disponível */
   display: flex;
@@ -708,50 +732,7 @@ button:focus-visible {
   margin: 0 auto;
 }
 
-/* Tablet: 2 colunas */
-@media (max-width: 1024px) {
-  .servicos-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .servicos-titulo {
-    padding-left: 50px; /* diminui espaçamento */
-  }
-}
-
-/* Celulares grandes: 1 coluna */
-@media (max-width: 768px) {
-  .servicos-container {
-    grid-template-columns: 1fr;
-  }
-
-  .servicos-titulo {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 20px;
-    gap: 10px;
-  }
-
-  .linha-vertical {
-    display: none; /* tira a linha que pode quebrar no mobile */
-  }
-}
-
-/* Celulares muito pequenos */
-@media (max-width: 480px) {
-  .servico-card {
-    padding: 16px 12px;
-    min-height: auto;
-  }
-
-  .servico-card h3 {
-    font-size: 1em;
-  }
-
-  .servico-card p {
-    font-size: 0.9em;
-  }
-}
 .avaliacoes-clientes {
   background-color: #222a36;
   width: 100%;
@@ -962,4 +943,39 @@ button:focus-visible {
 
 .redes-sociais-contatos img:hover {
   transform: scale(1.1);
+}
+@media (max-width: 480px) {
+  .contato {
+    padding: 30px 8px;
+    min-height: unset;
+  }
+  .contato-conteudo {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 0;
+    max-width: 100%;
+  }
+  .contato-bloco,
+  .horarios,
+  .navegacao {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .contato-logo {
+    margin: 0 auto 18px auto;
+    width: 180px;
+  }
+  .redes-sociais-contatos {
+    justify-content: center;
+    gap: 16px;
+  }
+  .navegacao ul {
+    padding-left: 0;
+  }
+  .navegacao ul li {
+    margin-bottom: 8px;
+  }
 }
