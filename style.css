@@ -4,6 +4,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Montserrat', Arial, sans-serif;
@@ -627,16 +632,48 @@ button:focus-visible {
     max-width: 360px; /* garante espaço para as setas */
     padding: 0 4px;
   }
-  .seta {
-    height: 40px;
-    width: 40px;
+  .servico-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 320px;
+    min-height: 220px;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    word-break: break-word;
   }
+
+  .linha-vertical {
+    display: inline-block;
+    margin: 0 10px;
+    height: 45px;
+    width: 4px;
+    background-color: #fff;
+    border-radius: 8px;
+    position: static;
+    top: 0;
+  }
+
   .svg-seta {
     height: 32px;
     width: 32px;
+    transition: none !important;
+  }
+  .servicos-titulo{
+   .servicos-titulo {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .servicos-titulo h2 {
+    font-size: 0.9rem;
   }
 }
-
+}
 .servicos-blocos-wrapper {
   flex: 1;                    /* ocupa o espaço disponível */
   display: flex;
