@@ -9,6 +9,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
+@media screen and (max-width: 480px){
+  html, body{
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+}
 
 body {
   font-family: 'Montserrat', Arial, sans-serif;
@@ -633,10 +640,13 @@ button:focus-visible {
     padding: 0 4px;
   }
   .servico-card {
-    width: 100%;
+    width: 90vw;
+    max-width: 70vw;
+    aspect-ratio: 2.2 / 1;
+    min-height: 120px;
+    max-height: 180px;
+    font-size: 0.95em;
     min-width: 0;
-    max-width: 320px;
-    min-height: 220px;
     height: auto;
     box-sizing: border-box;
     display: flex;
@@ -645,6 +655,10 @@ button:focus-visible {
     align-items: flex-start;
     word-break: break-word;
   }
+  .servico-card h3 {
+    font-size: 1em;
+  }
+}
 
   .linha-vertical {
     display: inline-block;
@@ -673,7 +687,7 @@ button:focus-visible {
     font-size: 0.9rem;
   }
 }
-}
+
 .servicos-blocos-wrapper {
   flex: 1;                    /* ocupa o espaço disponível */
   display: flex;
