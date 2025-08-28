@@ -670,9 +670,9 @@ button:focus-visible {
     box-sizing: border-box;
   }
   .servico-card {
-    width: 92vw;           /* largura maior, não encosta nas bordas */
-    max-width: 340px;      /* limita para não ficar exagerado */
-    min-width: 220px;      /* não fica muito estreito */
+    width: 80vw;           /* largura maior, não encosta nas bordas */
+    max-width: 260px;      /* limita para não ficar exagerado */
+    min-width: 180px;      /* não fica muito estreito */
     height: 170px;         /* altura fixa, suficiente para o texto */
     box-sizing: border-box;
     font-size: 0.95em;
@@ -685,6 +685,17 @@ button:focus-visible {
     word-break: break-word;
   }
 
+   .servicos-titulo {
+    gap: 12px;
+  }
+  .linha-vertical {
+    height: 1.6em;
+    width: 3px;
+  }
+
+ .servicos-titulo h2 {
+    font-size: 1.3rem;
+  }
   .servico-card h3 {
     font-size: 1em;
     margin-bottom: 10px;
@@ -696,14 +707,14 @@ button:focus-visible {
 }
   
   .linha-vertical {
-    display: inline-block;
-    margin: 0 10px;
-    height: 45px;
+    margin: 0 ;
+    height: 3em; 
     width: 4px;
     background-color: #fff;
     border-radius: 8px;
-    position: static;
-    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .svg-seta {
@@ -718,14 +729,19 @@ button:focus-visible {
   }
 
   .servicos-titulo {
-    flex-direction: row;
-    justify-content: center;
-    gap: 8px;
+    display: flex;
+    align-items: center; 
+    justify-content: start;
+    gap: 20px;
+    padding-left: 0;
+    position: relative;
+    
   }
 
   .servicos-titulo h2 {
-    font-size: 0.9rem;
+    font-size: 2rem;
     white-space: nowrap;
+    margin: 0;
   }
 
 
