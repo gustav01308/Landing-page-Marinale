@@ -670,18 +670,31 @@ button:focus-visible {
     box-sizing: border-box;
   }
   .servico-card {
-    width: 100%;
-    max-width: 100%;
-    min-height: 140px;
-    height: 140px;
-    font-size: 0.95em;
+    width: 92vw;           /* largura maior, não encosta nas bordas */
+    max-width: 340px;      /* limita para não ficar exagerado */
+    min-width: 220px;      /* não fica muito estreito */
+    height: 170px;         /* altura fixa, suficiente para o texto */
     box-sizing: border-box;
+    font-size: 0.95em;
+    border-radius: 0;
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    word-break: break-word;
   }
 
   .servico-card h3 {
     font-size: 1em;
+    margin-bottom: 10px;
   }
-
+   .servico-card p {
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+}
+  
   .linha-vertical {
     display: inline-block;
     margin: 0 10px;
@@ -714,7 +727,7 @@ button:focus-visible {
     font-size: 0.9rem;
     white-space: nowrap;
   }
-}
+
 
 .servicos-blocos-wrapper {
   flex: 1;                    /* ocupa o espaço disponível */
