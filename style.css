@@ -541,7 +541,7 @@ button:focus-visible {
 .servicos-titulo {
   display: flex;
   justify-content: flex-start;
-  padding-left: 180px;
+  padding-left: 50%;
   align-items: center;
   gap: 20px;
   position: relative;
@@ -978,7 +978,11 @@ button:focus-visible {
   display: flex;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  max-width: 1200px;     /* evita que os cards se espalhem além do limite */
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 @media (max-width: 480px) {
   .valores-container {
@@ -998,14 +1002,22 @@ button:focus-visible {
   background-color: #f5f5f5;
   border: 1px solid #093bb0;
   border-radius: 12px;
-  padding: 20px;
-  width: 300px;
-  height: 280px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;               /* reduzido para dar mais espaço ao texto */
+  flex: 1 1 240px;             /* permite encolher/expandir — base 240px */
+  max-width: 280px;            /* largura máxima por card */
+  min-width: 200px;            /* evita cards muito estreitos */
+  min-height: 220px;           /* altura consistente */
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;            /* evita “vazamento” visual */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .valores-tipos:hover {
@@ -1013,9 +1025,21 @@ button:focus-visible {
   transition: 0.5s ease;
 }
 
-.valores-tipos p{
-  padding: 20px;
+.valores-tipos h1 {
+  font-size: 1.5rem;          /* reduzido (antes 3rem) */
+  line-height: 1.15;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  text-transform: none;
 }
+
+.valores-tipos p {
+  padding: 0;                  /* remove padding duplicado que quebrava o layout */
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 
 .localizacao {
   background-color: #fff;
@@ -1158,5 +1182,77 @@ button:focus-visible {
   }
   .navegacao ul li {
     margin-bottom: 8px;
+  }
+}
+
+/* ...existing code... */
+@media (max-width: 480px) {
+  /* garante que o título não seja empurrado e permita quebra curta */
+  .servicos-titulo {
+    padding-left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+  }
+  .servicos-titulo h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    white-space: nowrap;           /* impede quebra interna */
+    max-width: calc(100% - 80px);  /* deixa espaço para as setas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* wrapper relativo para posicionar setas dentro da viewport */
+  .servicos-blocos-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 46px; /* espaço lateral para as setas */
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* cards ocupam o espaço disponível do wrapper, não 100vw */
+  .servicos-blocos .servicos-container.ativo {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 12px;
+    padding: 0;
+  }
+
+  /* posiciona setas com coordenadas internas ao wrapper (sempre visíveis) */
+  .seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 0;
+  }
+  .seta.esquerda { left: 8px; }
+  .seta.direita  { right: 8px; }
+
+  /* reduz o SVG para mobile */
+  .svg-seta {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* garante que os cards não empurrem as setas */
+  .servico-card {
+    width: 100%;
+    max-width: calc(100% - 0px);
+    box-sizing: border-box;
   }
 }
