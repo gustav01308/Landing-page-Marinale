@@ -1242,8 +1242,8 @@ button:focus-visible {
     background: transparent;
     padding: 0;
   }
-  .seta.esquerda { left: 32px; }
-  .seta.direita  { right: 32px; }
+  .seta.esquerda { left: 10px; }
+  .seta.direita  { right: 10px; }
 
   /* reduz o SVG para mobile */
   .svg-seta {
