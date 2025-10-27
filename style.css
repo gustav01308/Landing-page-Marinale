@@ -1211,16 +1211,24 @@ button:focus-visible {
 
   /* wrapper relativo para posicionar setas dentro da viewport */
   .servicos-blocos-wrapper {
+    --side-gap: 48px;
     position: relative;
     width: 100%;
     max-width: 100%;
-    padding: 0 48px; /* espaço lateral para as setas */
+    padding: 0 var(--side-gap); /* espaço lateral para as setas */
     box-sizing: border-box;
     overflow-x: hidden;
   }
+    .servicos-blocos-wrapper > .seta.esquerda {
+    left: calc(var(--side-gap) / 2);
+  }
+  .servicos-blocos-wrapper > .seta.direita {
+    right: calc(var(--side-gap) / 2);
+  }
 
   /* cards ocupam o espaço disponível do wrapper, não 100vw */
-  .servicos-blocos .servicos-container.ativo {
+  .servicos-blocos .servicos-container.ativo,
+  .servicos-blocos-wrapper .servicos-container.ativo {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -1240,13 +1248,13 @@ button:focus-visible {
     background: transparent;
     padding: 0;
   }
-  .seta.esquerda { left: 12px; }
-  .seta.direita  { right: 12px; }
+  .seta.esquerda { left: 18px; }
+  .seta.direita  { right: 18px; }
 
   /* reduz o SVG para mobile */
   .svg-seta {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
   }
 
   /* garante que os cards não empurrem as setas */
