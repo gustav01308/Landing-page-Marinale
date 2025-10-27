@@ -1247,8 +1247,8 @@ button:focus-visible {
 
   /* reduz o SVG para mobile */
   .svg-seta {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
   }
 
   /* garante que os cards não empurrem as setas */
