@@ -1214,7 +1214,7 @@ button:focus-visible {
     position: relative;
     width: 100%;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0 48px;
     box-sizing: border-box;
     overflow-x: hidden;
   }
