@@ -1235,16 +1235,15 @@ button:focus-visible {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 5;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
     padding: 0;
   }
-  .seta.esquerda { left: 18px; }
-  .seta.direita  { right: 18px; }
-
+  .seta.esquerda { left: calc(44px / 2); }  
+  .seta.direita  { right: calc(44px / 2); } 
   /* reduz o SVG para mobile */
   .svg-seta {
     width: 32px;
