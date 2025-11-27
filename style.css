@@ -1246,3 +1246,80 @@ button:focus-visible {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* Ajustes finais para um cabeçalho bem mais compacto no mobile */
+@media (max-width: 480px) {
+  /* header bem compacto */
+  header {
+    padding: 4px 10px;
+    min-height: 44px;
+    height: 44px;
+    background-color: rgba(0,0,0,0.68); /* leve ajuste para contraste */
+  }
+
+  .header-container {
+    gap: 8px;
+    padding: 0 4px;
+    height: 44px;
+    align-items: center;
+  }
+
+  /* logo menor para economizar espaço vertical */
+  .logo {
+    height: 34px;
+    max-height: 34px;
+  }
+
+  /* evita quebra das opções do menu e reduz espaçamento */
+  .menu ul {
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu ul li a {
+    font-size: 0.82rem;
+    padding: 2px 6px;
+    white-space: nowrap;
+  }
+
+  /* reduz espaço do bloco direito (telefone) */
+  .header-right {
+    gap: 6px;
+  }
+  .telefone-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .telefone {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  /* compensa o topo do conteúdo pela altura reduzida do header */
+  .inicio {
+    padding-top: 52px;
+    padding-left: 6%;
+  }
+}
+
+/* Em telas muito pequenas, esconde o texto do telefone e reduz mais o header */
+@media (max-width: 360px) {
+  header {
+    padding: 4px 8px;
+    min-height: 40px;
+    height: 40px;
+  }
+  .header-container {
+    height: 40px;
+  }
+  .logo {
+    height: 30px;
+  }
+  .telefone {
+    display: none; /* mostra apenas o ícone para economizar espaço */
+  }
+  .inicio {
+    padding-top: 48px;
+  }
+}
